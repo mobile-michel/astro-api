@@ -1,55 +1,71 @@
 ---
-layout: ../components/Article.astro
+layout: ../components/articleComponent.astro
 title: Page Title
 description: Page Description
 car: Hyundai Ioniq5
 ---
-## Comment passer des variables
+## Comment passer la variable "title"
 ### Depuis un fichier .astro
 ```
 ./pages/index.astro
-import PageLayout from '../layouts/PageLayout.astro'
+import Article from '../components/articleComponent.astro'
 const title = 'Page Title'
-<PageLayout content={{title}}></PageLayout>
+<Article content={{title}}></Article>
+
+./components/articleComponent.astro
+import PageLayout from '../layouts/PageLayout.astro'
+const { content } = Astro.props
+<PageLayout content={content}></PageLayout>
 
 ./layouts/PageLayout.astro
+import {SITE} from '../config.ts'
 const {content} = Astro.props
-<title>{content.title}</title>
+<title>{content.title} | {SITE.title}</title>
 ```
 ### Depuis un fichier .md
 ```
 ./pages/about.md
-layout: ../layouts/PageLayout.astro
+layout: ../components/articleComponent.astro
 title: Page Title
-
-./layouts/PageLayout.astro
-const {content} = Astro.props
-<title>{content.title}</title>
 ```
-### Fichiers .md + Head.astro
-```
-./pages/about.md
-layout: ../layouts/PageLayout.astro
-title: Page Title
+Le reste est semblable...
 
-./layouts/PageLayout.astro
-import Head from '../components/Head.astro'
+### Présentation pour un blog
+```
+./pages/blog/post1.md
+layout: ../../components/blogComponent.astro
+title: First blog
+
+./components/blogComponent.astro
+import PageLayout from '../layouts/PageLayout.astro'
+const data = Astro.fetchContent('../pages/blog/*.md')
 const { content } = Astro.props
-<Head content={content} />
+<PageLayout content={content}>
+	<ul>{data.slice(0, 3).map((post) => (
+		<li><a href={post.url}>{post.title}</a>: {post.author}</li>
+		))}
+	</ul>
+</PageLayout>
 
-./components/Head.astro
+./layouts/PageLayout.astro
+import {SITE} from '../config.ts'
 const {content} = Astro.props
-<title>{content.title}</title>
+<title>{content.title} | {SITE.title}</title>
 ```
 
-### Fichiers .astro + config.ts
+### Main navigation with "config.ts"
 ```
 ./src/config.ts
-export const SITE = {
-    name: 'Company Name'
-}
+export const NAV_ITEMS = {
+    home: {
+        path: '/',
+        title: 'Home'
+    },
 
-./pages/index.astro
-import {SITE} from '../config.ts'
-<p>Name: {SITE.name}</p>
+./layouts/PageLayout.astro
+import {NAV_ITEMS} from '../config.ts'
+	<ul>{
+		Object.keys(NAV_ITEMS).map(navItemKey => <li>
+		<a href={NAV_ITEMS[navItemKey].path}>{NAV_ITEMS[navItemKey].title}</a></li>)
+	}</ul>
 ```

@@ -1,43 +1,46 @@
 ---
 import {Markdown} from 'astro/components';
-import Article from '../components/Article.astro'
-import {SITE} from '../config.ts'
+import Article from '../components/articleComponent.astro'
 const title = 'Page Title'
 const description = 'Page Description'
 const car = 'Hyundai Ioniq5'
 ---
 <Article content={{title, description, car}}>
-	<h2>Comment passer des variables</h2>
-	<p>Name: {SITE.name}</p>
-	<p>Title: {SITE.title}</p>
-	<p>Description: {SITE.description}</p>
-		<Markdown>
-			## Project Structure
+<Markdown>
+## Welcome to my Astro wireframe
 
-			Inside of your Astro project, you'll see the following folders and files:
+### Project Structure
 
-			```
-			/
-			├── public/
-			│   └── favicon.ico
-			├── src/
-			│   ├── components/
-			│   │   └── Head.astro
-			│   ├── layouts/
-			│   │   └── BlogLayout.astro
-			│   │   └── PageLayout.astro
-			│   ├── pages/
-			│   │   └── index.astro
-			│   └── styles/
-			│       └── global.css
-			└── package.json
-			```
+Inside of my Astro project, you'll see the following folders and files:
 
-			Astro looks for `.astro` or `.md` files in the `src/pages/` directory.
-			Each page is exposed as a route based on its file name.
+```
+/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   └── articleComponent.astro
+│   │   └── blogComponent.astro
+│   ├── layouts/
+│   │   └── PageLayout.astro
+│   ├── pages/
+│   │   ├── article.astro
+│   │   ├── blog.astro
+│   │   ├── index.astro
+│   │   ├── variables.md
+│   │   └── blog/
+│   │       ├── post1.md
+│   │       ├── post2.md
+│   │       └── post3.md
+│   └── styles/
+│       └── global.css
+└── package.json
+```
+### Page routing is...
 
-			There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+`index.astro -> articleComponent.astro -> PageLayout.astro`
 
-			Any static assets, like images, can be placed in the `public/` directory.
-		</Markdown>
+`blog.astro -> blogComponent.astro -> PageLayout.astro`
+
+</Markdown>
 </Article>

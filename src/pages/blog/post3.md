@@ -1,5 +1,5 @@
 ---
-layout: ../../components/Blog.astro
+layout: ../../components/blogComponent.astro
 title: Third blog
 date: 2022-03-27
 author: Gabriel Goubri

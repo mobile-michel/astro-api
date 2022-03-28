@@ -1,5 +1,5 @@
 ---
-layout: ../../components/Blog.astro
+layout: ../../components/blogComponent.astro
 title: Second blog
 date: 2022-03-15
 author: Arthur Melon

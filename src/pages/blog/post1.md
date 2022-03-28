@@ -1,5 +1,5 @@
 ---
-layout: ../../components/Blog.astro
+layout: ../../components/blogComponent.astro
 title: First blog
 date: 2022-02-15
 author: Michel Maillard

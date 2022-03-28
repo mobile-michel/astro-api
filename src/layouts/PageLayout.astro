@@ -1,11 +1,17 @@
 ---
-import Head from '../components/Head.astro'
 import {SITE} from '../config.ts'
 import {NAV_ITEMS} from '../config.ts'
+import '../styles/global.css'
 const { content } = Astro.props
 ---
 <html lang="en">
-    <Head content={content} />
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{content.title} | {SITE.title}</title>
+	<meta name="description" content={content.description}>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
 <body>
 	<div id="wrapper">
 		<header>
