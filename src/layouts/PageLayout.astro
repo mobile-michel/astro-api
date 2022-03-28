@@ -1,0 +1,29 @@
+---
+import Head from '../components/Head.astro'
+import {NAV_ITEMS} from '../config.ts'
+const { content } = Astro.props
+---
+<html lang="en">
+    <Head content={content} />
+<body>
+	<div id="wrapper">
+		<header>
+				<h1>Company Name</h1>
+                <p>Title: {content.title}</p>
+                <p>Description: {content.description}</p>
+                <p>My car is a {content.car}</p>
+		</header>
+		<nav>
+			<ul>
+			{
+				Object.keys(NAV_ITEMS).map(navItemKey => <li>
+				<a href={NAV_ITEMS[navItemKey].path}>{NAV_ITEMS[navItemKey].title}</a></li>)
+			}
+			</ul>
+		</nav>
+		<main>
+			<slot />
+		</main>
+	</div>
+</body>
+</html>

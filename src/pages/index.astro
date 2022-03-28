@@ -1,0 +1,13 @@
+---
+import PageLayout from '../layouts/PageLayout.astro'
+import {SITE} from '../config.ts'
+const title = 'Page Title'
+const description = 'Page Description'
+const car = 'Hyundai Ioniq5'
+---
+<PageLayout content={{title, description, car}}>
+	<h2>Comment passer des variables</h2>
+	<p>Name: {SITE.name}</p>
+	<p>Title: {SITE.title}</p>
+	<p>Description: {SITE.description}</p>
+</PageLayout>

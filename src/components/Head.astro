@@ -1,0 +1,11 @@
+---
+import { SITE } from '../config.ts'
+const { content } = Astro.props
+---
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{content.title} | {SITE.title}</title>
+	<meta name="description" content={content.description}>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
