@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/PageLayout.astro
+layout: ../components/Article.astro
 title: Page Title
 description: Page Description
 car: Hyundai Ioniq5

@@ -20,7 +20,12 @@ const { content } = Astro.props
 			</ul>
 		</nav>
 		<main>
+			<section>
+                <p>{content.title}</p>
+                <p>{content.description}</p>
+                <p>My car is a {content.car}</p>
 			<slot />
+			</section>
 		</main>
 		<footer>
 			<p>{SITE.footer}</p>

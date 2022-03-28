@@ -1,29 +1,42 @@
 ---
 import Head from '../components/Head.astro'
+import {SITE} from '../config.ts'
+import {NAV_ITEMS} from '../config.ts'
 const data = Astro.fetchContent('../pages/blog/*.md')
+const { content } = Astro.props
 ---
 <html lang="en">
+    <Head content={content} />
 <body>
 	<div id="wrapper">
 		<header>
-				<h1>Company Name</h1>
-                <p>Title: </p>
-                <p>This is my blog</p>
+				<h1>{SITE.name}</h1>
 		</header>
 		<nav>
-			<div>
-{data.slice(0, 3).map((post) => (
-  <article>
-    <h1>{post.title}</h1>
-    <p>{post.description}</p>
-    <a href={post.url}>Read more</a>
-  </article>
-))}
-</div>
+			<ul>
+			{
+				Object.keys(NAV_ITEMS).map(navItemKey => <li>
+				<a href={NAV_ITEMS[navItemKey].path}>{NAV_ITEMS[navItemKey].title}</a></li>)
+			}
+			</ul>
 		</nav>
 		<main>
-			<slot />
+			<section>
+                <h2>{content.title}</h2>
+                <p>This post is from {content.author}.</p>
+				<slot />
+				<p>Written on {content.date}</p>
+			</section>
+			<aside>
+				<ul>{data.slice(0, 3).map((post) => (
+					<li><a href={post.url}>{post.title}</a>: {post.author}</li>
+				))}
+				</ul>
+			</aside>
 		</main>
+		<footer>
+			<p>{SITE.footer}</p>
+		</footer>
 	</div>
 </body>
 </html>

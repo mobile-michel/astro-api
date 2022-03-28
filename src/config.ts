@@ -1,7 +1,8 @@
 export const SITE = {
-    name: 'Company Name',
+    name: 'Astro Runtime API Reference',
     title: 'Website Title',
-    description: 'My company description'
+    description: 'My company description',
+    footer: '@Copyright 2022'
 }
 
 export const NAV_ITEMS = {
@@ -13,8 +14,16 @@ export const NAV_ITEMS = {
         path: '/variables',
         title: 'Variables'
     },
-    preact: {
-        path: '/preact',
-        title: 'Preact'
+    blog: {
+        path: '/blog/post1',
+        title: 'Blog'
+    },
+    article: {
+        path: '/article',
+        title: 'Article'
+    },
+    blog2: {
+        path: '/blog',
+        title: 'Blog Test'
     }
 }
