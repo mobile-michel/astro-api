@@ -3,11 +3,9 @@ import Article from '../components/articleComponent.astro'
 import {SITE} from '../config.ts'
 const title = 'Article'
 const description = 'Content for an article'
-const car = 'Hyundai Ioniq5'
 ---
-<Article content={{title, description, car}}>
+<Article content={{title, description}}>
 	<h2>Comment passer des variables</h2>
-	<p>Name: {SITE.name}</p>
 	<p>Title: {SITE.title}</p>
 	<p>Description: {SITE.description}</p>
 </Article>

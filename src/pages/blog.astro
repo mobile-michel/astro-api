@@ -3,9 +3,10 @@ import Blog from '../components/blogComponent.astro'
 import {SITE} from '../config.ts'
 const title = 'Blog'
 const description = 'Page Description'
-const car = 'Hyundai Ioniq5'
+const author = 'George Dalton'
+const date = '2021-12-27'
 ---
-<Blog content={{title, description, car}}>
+<Blog content={{title, description, author, date}}>
 	<h2>Comment passer des variables</h2>
 	<p>Name: {SITE.name}</p>
 	<p>Title: {SITE.title}</p>

@@ -1,8 +1,7 @@
 export const SITE = {
-    name: 'Astro Runtime API Reference',
-    title: 'Website Title',
-    description: 'My company description',
-    footer: '@Copyright 2022'
+    title: 'Astro Runtime API Reference',
+    description: 'The strict minimum for a wireframe template',
+    footer: '© 2022 Michel Maillard'
 }
 
 export const NAV_ITEMS = {
