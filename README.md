@@ -1,5 +1,7 @@
 # Welcome to my Astro wireframe
 
+No deploy, local clone.
+
 ## Project Structure
 
 Inside of my Astro project, you'll see the following folders and files:
